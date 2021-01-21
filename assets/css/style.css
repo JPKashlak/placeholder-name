@@ -1,6 +1,7 @@
-body {
-    background-color: black;
+.column {
+    border: crimson 5px solid;
+    
 }
 p {
-    color: blueviolet;
+    color: cornsilk;
 }
