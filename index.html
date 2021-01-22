@@ -9,23 +9,76 @@
 </head>
 <body>
 
-    <div class="columns is-mobile">
-        <div class="column">
-          First column
-        </div>
-        <div class="column">
-          Second column
-        </div>
-        <div class="column">
-          Third column
-        </div>
-        <div class="column">
-          Fourth column
+  <header>
+    <p class="title is-1 has-text-centered">Title</p>
+  </header>
+
+  <main>
+
+    <!--Zip Code Form-->
+    <section class="mx-3 my-5">
+      <div class = "columns is-centered"  id= "test">
+        <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
+            <label class="label has-text-left">Zip Code</label>
+          <div id = "inputForm">
+            <input class="input" type="text" placeholder="Enter your zip code">
+            <button type="submit" class="button ml-1">Search</button> 
+          </div>
         </div>
       </div>
 
-    <button id="test">Did the .js link work?</button>
+      <!--Card Columns-->
+        <div id = "cardColumns" class = "columns is-centered">
+          <!--First Card-->
+          <div class="column is-one-third-desktop is-one-third-tablet">
+            <div class = "card">
+              <div class = "card-header">
+                <p class = "card-header-title title is-4">
+                  Covid-19 Data
+                </p>
+              </div>
+              <div>
+                <div class = "content">
+                  <ul>
+                    <li><span class = "dataTitle">Active Cases:</span> <span id = "activeData">TESTTESTTEST</span></li>
+                    <li><span class = "dataTitle">Recovered Cases:</span> <span id = "recoveredData"></span></li>
+                    <li><span class = "dataTitle">Number of Deaths:</span> <span id = "deathData"></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--Second Card-->
+          <div class="column is-one-third-desktop is-one-third-tablet">
+            <div class = "card">
+              <div class = "card-header">
+                <p class = "card-header-title title is-4">
+                  Politician Data
+                </p>
+              </div>
+              <div>
+                <div class = "content">
+                  <ul>
+                    <li><span class = "dataTitle">Name:</span> <span id = "nameData"></span></li>
+                    <li><span class = "dataTitle">Twitter:</span> <span id = "twitterData"></span></li>
+                    <li><span class = "dataTitle">Facebook:</span> <span id = "facebookData"></span></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+    </section>
+  </main>
 
-    <script src="assets/js/script.js"></script>   
+
+  <footer>
+    <p>Do we even need a footer?</p>
+  </footer>
+
+
+    
+<script src="assets/js/script.js"></script>   
+
 </body>
 </html>
