@@ -11,3 +11,9 @@ function validateForm() {
   }
   
 }
+
+fetch("http://dev.virtualearth.net/REST/v1/Locations?postalCode=78721&key=Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0").then(function(response) {
+  response.json().then(function(data) {
+    console.log(data.resourceSets[0].resources[0].address.adminDistrict2);
+  });
+});
