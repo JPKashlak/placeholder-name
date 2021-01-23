@@ -21,8 +21,8 @@
         <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
             <label class="label has-text-left">Zip Code</label>
           <div id = "inputForm">
-            <input class="input" type="text" placeholder="Enter your zip code">
-            <button type="submit" class="button ml-1">Search</button> 
+            <input id="zip-code" class="input" type="text" placeholder="zip code">
+            <button type="submit" id="search-button" class="button ml-1">Search</button> 
           </div>
         </div>
       </div>
@@ -33,16 +33,16 @@
           <div class="column is-one-third-desktop is-one-third-tablet">
             <div class = "card">
               <div class = "card-header">
-                <p class = "card-header-title title is-4">
+                <p id="covid-title" class = "card-header-title title is-4">
                   Covid-19 Data
                 </p>
               </div>
               <div>
                 <div class = "content">
                   <ul>
-                    <li><span class = "dataTitle">Active Cases:</span> <span id = "activeData">TESTTESTTEST</span></li>
-                    <li><span class = "dataTitle">Recovered Cases:</span> <span id = "recoveredData"></span></li>
-                    <li><span class = "dataTitle">Number of Deaths:</span> <span id = "deathData"></span></li>
+                    <li><span id="positive-Cases" class = "dataTitle"></span></li>
+                    <li><span id="recovered" class = "dataTitle"></span> <span id = "recoveredData"></span></li>
+                    <li><span id="deaths" class = "dataTitle"></span> <span id = "deathData"></span></li>
                   </ul>
                 </div>
               </div>
@@ -71,13 +71,12 @@
     </section>
   </main>
 
-
   <footer>
     <p>Do we even need a footer?</p>
   </footer>
 
-
-    
+<!-- script files -->
+<script src="https://code.jquery.com/jquery.js"></script>   
 <script src="assets/js/script.js"></script>   
 
 </body>
