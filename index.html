@@ -21,10 +21,10 @@
       <div class = "columns is-centered"  id= "test">
         <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
             <label class="label has-text-left">Zip Code</label>
-          <div id = "inputForm">
-            <input class="input" type="text" placeholder="Enter your zip code">
-            <button type="submit" class="button ml-1">Search</button> 
-          </div>
+          <form id = "inputForm">
+            <input class="input" type="text" placeholder="Enter your zip code" id="zipEntry">
+            <button type="submit" class="button ml-1" id="searchBtn">Search</button> 
+          </form>
         </div>
       </div>
 
@@ -56,6 +56,8 @@
                 <p class = "card-header-title title is-4">
                   Politician Data
                 </p>
+              </div>
+              <div class="card-image" id="portrait">
               </div>
               <div>
                 <div class = "content">
