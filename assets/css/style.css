@@ -1,46 +1,66 @@
 header {
-    background-color: rgb(54, 54, 179);
-    padding-bottom: 3px;
-    margin-bottom: 10px;
-}
-.is-1 {
-    color: rgb(247, 241, 241)
-}
-body, .label {
-    font-size: 1.2rem;
+  background-color: rgb(54, 54, 179);
+  padding: 24px;
+  margin-bottom: 12px;
 }
 
+.is-1 {
+  color: rgb(247, 241, 241);
+}
+
+body,
+.field-label {
+  font-size: 1.2rem;
+}
+
+#test {
+  margin: 48px 0;
+}
+
+/* input styles */
 #inputForm {
-    display: flex;
+  display: flex;
 }
+
 input {
-    min-width: 67px;
+  min-width: 160px;
 }
+
+/* search button styles */
+.button {
+  color: rgb(54, 54, 179);
+  border: 2px solid rgb(54, 54, 179);
+}
+
+.button:hover {
+  border-style: none;
+  background-color: rgb(54, 54, 179);
+  color: white;
+}
+
 /* .column {
     border: crimson 2px solid;  
 } */
+
 .dataTitle {
-    font-weight: bold;
-}
-.content {
-    margin-bottom: 7px;
-}
-footer {
-    background-color: rgb(199, 9, 9);
-    color: rgb(247, 241, 241);
-    margin-top: 10px;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    height: 3rem;
+  font-weight: bold;
 }
 
-@media screen and (max-width: 768px) {
-    #test {
-        max-width: 75%;
-        min-width: 50%;
-    }
-    #test label {
-        width: 100%;
-    }
+.content {
+  margin-bottom: 7px;
+}
+
+li {
+  list-style-type: none;
+  padding: 12px 32px 12px 0;
+}
+
+footer {
+  background-color: rgb(199, 9, 9);
+  color: rgb(247, 241, 241);
+  margin-top: 10px;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 3rem;
 }
