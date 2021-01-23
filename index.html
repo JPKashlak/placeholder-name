@@ -17,12 +17,13 @@
 
     <!--Zip Code Form-->
     <section class="mx-3 my-5">
+
+      <h1 class="has-text-centered">Enter your zip to get the latest covid data & your local reps info</h1>
       <div class = "columns is-centered"  id="test">
         <div class = "column is-half-mobile is-one-third-tablet is-one-third-desktop has-text-centered">
-            <label class="label has-text-left">Zip Code</label>
           <div id="inputForm">
-            <input class="input is-medium" type="text" id="zip-field" placeholder="Enter your zip code">
-            <button type="submit" class="button ml-1 is-medium" onclick="validateForm()">Search</button> 
+            <input class="input is-large" type="text" id="zip-field" placeholder="Enter your zip code">
+            <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
           </div>
           <p class="help is-danger has-text-left" id="error"></p>
         </div>
@@ -39,7 +40,7 @@
             <div>
               <div class="content">
                 <ul>
-                  <li><span class = "dataTitle">Active Cases:</span> <span id = "activeData">TESTTESTTEST</span></li>
+                  <li><span class = "dataTitle">Active Cases:</span> <span id = "activeData"></span></li>
                   <li><span class = "dataTitle">Recovered Cases:</span> <span id = "recoveredData"></span></li>
                   <li><span class = "dataTitle">Number of Deaths:</span> <span id = "deathData"></span></li>
                 </ul>
