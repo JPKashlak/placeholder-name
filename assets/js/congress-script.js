@@ -3,17 +3,25 @@ var zipEntry = document.querySelector("#zipEntry")
 
 console.log("Hello!")
 
-var test = "https://cors-anywhere.herokuapp.com/https://v3.openstates.org/people.geo?lat=39.9526&lng=75.1652&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"
-fetch(test).then(function(response) {
-    response.json(function(data) {
+var zipLat = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/bPFXT7f94doreVmq3xglvcSMkik0aLNzKMiq4ggdkSV6obKC1Li3AiDT9cmwufZz/info.json/78731/degrees"
+fetch(zipLat).then(function(response) {
+    response.json().then(function(data) {
         console.log(data)
-    }) 
+    })
 })
 
-// var test2 = "https://cors-anywhere.herokuapp.com/https://v3.openstates.org/people.geo?lat=39.9526&lng=75.1652&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"
-// fetch(test2).then(function(response) {
-//         console.log(response)
-// })
+
+// fetch(test)
+//     .then(response => response.json())
+//     .then(data => console.log(data))
+var testRep = "https://v3.openstates.org/people.geo?lat=30.267153&lng=-97.743057&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"    
+fetch(testRep).then(function(response) {
+    return response.json().then(function(data) {
+        return console.log(data.results[0].current_role.title + " " + data.results[0].given_name + " " + data.results[0].family_name + " of distrct " + data.results[0].current_role.district)
+    })
+})
+
+// The Actual Function Starts Here. Testing Above
 
 var pullPoliticData = function(event) {
     var repData = zipEntry.value.trim();
