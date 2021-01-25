@@ -1,12 +1,6 @@
 var zipInput = document.querySelector("#inputForm")
-var zipEntry = document.querySelector("#zipEntry")
+var zipEntry = document.querySelector("#zip-field")
 
-// fetch(test)
-//     .then(response => response.json())
-//     .then(data => console.log(data))
-
-
-// The Actual Function Starts Here. Testing Above
 
 var pullPoliticData = function(event) {
 
@@ -20,52 +14,85 @@ var pullPoliticData = function(event) {
                 console.log(data)
                 var localLat = data.lat 
                 var localLong = data.lng
+       
 
-            
+    
         var testRep = "https://v3.openstates.org/people.geo?lat=" + localLat + "&lng=" + localLong + "&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"    
             fetch(testRep).then(function(response) {
                 return response.json().then(function(data) {
                     console.log(data)
 
+                // Create Card
+                       
+                    // for (var i = 0; i < data.results.length; i++) {
 
-                    for (var i = 0; i < data.results.length; i++) {
-                        
-                        var fetchName = data.results[i].current_role.title + " " + data.results[i].given_name + " " + data.results[i].family_name + " (District " + data.results[i].current_role.district + "), " + data.results[i].party + " Party"
-                        
-                        console.log(fetchName)
+                        // List Portrait
+                        var imageUrl = data.results[0].image
+                        var photoSlot = document.querySelector("#portrait")
+                        var portrait = document.createElement("img")
+                            portrait.src = imageUrl                 
+                            photoSlot.style.width = "150px"
+                            photoSlot.style.height = "200px"        
+                            photoSlot.appendChild(portrait)
+                            if (photoSlot.childNodes.length > 1) {
+                                photoSlot.removeChild(photoSlot.childNodes[0])
+                            }
+
                         // List Name
+                        var fetchName = data.results[0].current_role.title + " " + data.results[0].name + " (District " + data.results[0].current_role.district + ")"             
+                        console.log(fetchName)
                         var nameSlot = document.querySelector("#nameData")
                             nameSlot.textContent = fetchName
-
+                        if (data.results[0].party === "Democratic") {
+                            nameSlot.style.color = "#3636b3"
+                        }
+                        else if (data.results[0].party === "Republican") {
+                            nameSlot.style.color = "#c70909"
+                        }
+                        else {
+                            nameSlot.style.color = "#000000"
+                        }
                         // List Contact
                         var webSlot = document.querySelector("#contactData")
-                        if (data.results[i].current_role.title === "Representative") {
-                            webSlot.setAttribute("href", data.results[i].openstates_url)
-                            webSlot.textContent = "Rep"
+                        if (data.results[0].current_role.title === "Representative") {
+                            webSlot.setAttribute("href", data.results[0].openstates_url)
+                            webSlot.textContent = "Contact your " + data.results[0].current_role.title
                         }
-                        else if (data.results[i].current_role.title === "Senator") {
-                            webSlot.textContent = "Sen"
+                        else if (data.results[0].current_role.title === "Senator") {
+                            webSlot.setAttribute("href", data.results[0].openstates_url)
+                            webSlot.textContent = "Contact your " + data.results[0].current_role.title 
+                        }
+                        else if (data.results[0].current_role.title === "Delegate") {
+                            webSlot.setAttribute("href", data.results[0].openstates_url)
+                            webSlot.textContent = "Contact your " + data.results[0].current_role.title
+                        }
+                        else {
+                            webSlot.setAttribute("href", data.results[0].openstates_url)
+                            webSlot.textContent = "Contact!"
                         }
                             
                         //List Facebook
-                        var fetchFacebook = data.results[i].extras.facebook
+                        var fetchFacebook = data.results[0].extras.facebook
                         var facebookSlot = document.querySelector("#facebookData")
-                        if (data.results[i].extras.facebook) {
+                        if (data.results[0].extras.facebook) {
                             facebookSlot.textContent = fetchFacebook
                             facebookSlot.setAttribute("href", fetchFacebook)
                         }
                         else {
                             facebookSlot.textContent = "N/A"
+                            facebookSlot.setAttribute("href", "")
                         }
-                    }
+                    // }
                 })
             })
         })
     }) 
+}
+
+zipInput.addEventListener("submit", pullPoliticData)
 
 
 
-    zipInput.addEventListener("submit", pullPoliticData)
 
     // var testZip = "http://dev.virtualearth.net/REST/v1/Locations?postalCode=" + localZip + "&key=Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0"
 
@@ -93,7 +120,5 @@ var pullPoliticData = function(event) {
 
     //     })
     // })
-
-}
 
 

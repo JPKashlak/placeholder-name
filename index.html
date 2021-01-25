@@ -6,7 +6,6 @@
     <title>Group Project 1</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-    <!-- <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script> -->
 </head>
 <body>
 
@@ -22,7 +21,7 @@
         <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
             <label class="label has-text-left">Zip Code</label>
           <form id = "inputForm">
-            <input class="input" type="text" placeholder="Enter your zip code" id="zipEntry">
+            <input class="input" type="text" placeholder="Enter your zip code" id="zip-field">
             <button type="submit" class="button ml-1" id="searchBtn">Search</button> 
           </form>
         </div>
@@ -50,15 +49,18 @@
             </div>
           </div>
           <!--Second Card-->
+          <div id = "politic-card"></div>
+
           <div class="column is-one-third-desktop is-one-third-tablet">
             <div class = "card">
               <div class = "card-header">
                 <p class = "card-header-title title is-4">
-                  Politician Data
+                  Your Local Politician
                 </p>
               </div>
-              <div class="card-image" id="portrait">
-              </div>
+
+              <div class="card-image" id="portrait"></div>
+                                  
               <div>
                 <div class = "content">
                   <ul>
