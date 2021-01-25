@@ -1,14 +1,16 @@
 // DOM Variables
 var inputForm = document.getElementById('#inputForm');
 var zipEntry = document.getElementById('#zip-field');
-var positiveCasesEl = document.getElementById('#positive');
-var recoveredCasesEl = document.getElementById('#recovered');
-var deathsCasesEl = document.getElementById('#deaths');
+var currentEl = document.getElementById('#current');
+var recoveredEl= document.getElementById('#recovered');
+var deathsEl = document.getElementById('#deaths');
 
 // Global Variables
 var covidNowKey = "bb14400183684b2eba37ecb5a94ee3ec"
 var countyFIPS;
 
+
+console.log("*******test*******test*******")
 /*
 // Capture form input
 var getCountyFips = function (event) {
@@ -47,7 +49,7 @@ console.log(countyFIPS)
 
 */
 
-console.log("test")
+
 
 //Function to get county data by countyFIPS from covidNow
 function getCountyData() {
@@ -57,25 +59,31 @@ function getCountyData() {
     fetch(covidApiURL).then(function (response) {
         response.json().then(function (data) {
             //check data
-            console.log(response)
-            // get and display positive cases
-            var positiveCnt = data.actuals.cases;
-            console.log(data.actuals.cases)
-            positiveCasesEl.innerHTML = positiveCnt;
-            
-            
-            /*
-                // get and display death cases
-                var deathCnt = data.counties.deathCt;
-                deathsCasesEl.innerHTML = "Death Cases: " + deathCnt;
-                // get and display recovered cases
-                var recoveredCnt = positiveCnt - deathCt;
-                recoveredCasesEl.innerHTML = "Recovered Cases: " + recoveredCnt;*/
+            console.log(data)
+
+            // Get and display current cases
+            var currentCases = data.actuals.newCases;
+            //currentEl.innerHTML = "Current Cases: " + currentCases;
+            //console.log(data.actuals.newCases)
+
+            // Get total cases
+            var totalCases = data.actuals.cases;
+            //console.log(data.actuals.cases)
+
+            // Get and display death cases
+            var deathCnt = data.actuals.deaths;
+            //console.log(data.actuals.deaths)
+            //deathsCasesEl.innerHTML = "Death Cases: " + deathCnt;
+
+            // Calculate and display recovered cases
+            var recoveredCnt = totalCases - deathCnt;
+            //console.log(recoveredCnt)
+            //recoveredCasesEl.innerHTML = "Recovered Cases: " + recoveredCnt
         })
     });
 }
 
-
+getCountyData();
 
 
 
