@@ -16,6 +16,7 @@
   <main>
 
     <!--Zip Code Form-->
+<<<<<<< HEAD
     <section class="mx-3 my-5">
       <div class = "columns is-centered"  id= "test">
         <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
@@ -45,37 +46,81 @@
                     <li><span id="deaths" class = "dataTitle"></span></li>
                   </ul>
                 </div>
+=======
+
+      <h1 class="has-text-centered">Enter your zip to get the latest covid data & your local reps info</h1>
+      <div class = "columns is-centered"  id="test">
+        <div class = "column is-half-mobile is-one-third-tablet is-one-third-desktop has-text-centered">
+          <label class="label has-text-left">Zip Code</label>
+          <form id="inputForm">
+            <input class="input is-large" type="text" id="zip-field" placeholder="Enter your zip code">
+            <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
+          </form>
+          <p class="help is-danger has-text-left" id="error"></p>
+        </div>
+      </div>
+
+    <!--Card Columns-->
+      <div id="cardColumns" class="columns is-centered">
+        <!--First Card-->
+        <div class="column is-one-third-desktop is-one-third-tablet">
+          <div class ="card hidden">
+            <div class="card-header">
+              <p id="covid" class="card-header-title title is-4"></p>
+            </div>
+            <div>
+              <div class="content">
+                <ul>
+                  <li><span class = "dataTitle">Active Cases:</span> <span id = "activeData"></span></li>
+                  <li><span class = "dataTitle">Recovered Cases:</span> <span id = "recoveredData"></span></li>
+                  <li><span class = "dataTitle">Number of Deaths:</span> <span id = "deathData"></span></li>
+                </ul>
+>>>>>>> 40f1121ad83f0135acdc571b4be949f2c5fcf410
               </div>
             </div>
           </div>
+        </div>
           <!--Second Card-->
+          <div id = "politic-card"></div>
+
           <div class="column is-one-third-desktop is-one-third-tablet">
-            <div class = "card">
+            <div class ="card hidden">
               <div class = "card-header">
-                <p class = "card-header-title title is-4">
-                  Politician Data
+                <p class = "card-header-title title is-4" id="rep">
+                  
                 </p>
               </div>
+
+              <div class="card-image" id="portrait"></div>
+                                  
               <div>
                 <div class = "content">
                   <ul>
-                    <li><span class = "dataTitle">Name:</span> <span id = "nameData"></span></li>
-                    <li><span class = "dataTitle">Twitter:</span> <span id = "twitterData"></span></li>
-                    <li><span class = "dataTitle">Facebook:</span> <span id = "facebookData"></span></li>
+                    <li><span class="dataTitle">Name:</span> <span id="nameData"></span></li>
+                    <li><span class="dataTitle">Contact:</span> <a id="contactData"></a></li>
+                    <li><span class="dataTitle">Facebook:</span> <a id="facebookData"></a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
   </main>
 
+<<<<<<< HEAD
  
 <!-- script files -->
 <script src="https://code.jquery.com/jquery.js"></script>  
 <script type="text/javascript" src="./assets/js/covidData.js"></script> 
 <script type="text/javascript" src="/assets/js/script.js"></script>  
+=======
+  
+<script src="https://code.jquery.com/jquery.js"></script>
+
+<script src="assets/js/script.js"></script>   
+>>>>>>> 40f1121ad83f0135acdc571b4be949f2c5fcf410
 
 </body>
 </html>
