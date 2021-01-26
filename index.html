@@ -16,18 +16,20 @@
   <main>
 
     <!--Zip Code Form-->
-    <section class="mx-3 my-5">
-      <div class = "columns is-centered"  id= "test">
-        <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
-            <label class="label has-text-left">Zip Code</label>
-          <form id = "inputForm">
-            <input class="input" type="text" placeholder="Enter your zip code" id="zip-field">
-            <button type="submit" class="button ml-1" id="searchBtn">Search</button> 
+
+      <h1 class="has-text-centered">Enter your zip to get the latest covid data & your local reps info</h1>
+      <div class = "columns is-centered"  id="test">
+        <div class = "column is-half-mobile is-one-third-tablet is-one-third-desktop has-text-centered">
+          <label class="label has-text-left">Zip Code</label>
+          <form id="inputForm">
+            <input class="input is-large" type="text" id="zip-field" placeholder="Enter your zip code">
+            <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
           </form>
+          <p class="help is-danger has-text-left" id="error"></p>
         </div>
       </div>
 
-      <!--Card Columns-->
+    <!--Card Columns-->
       <div id="cardColumns" class="columns is-centered">
         <!--First Card-->
         <div class="column is-one-third-desktop is-one-third-tablet">
@@ -62,22 +64,23 @@
               <div>
                 <div class = "content">
                   <ul>
-                    <li><span class = "dataTitle">Name:</span> <span id = "nameData"></span></li>
-                    <li><span class = "dataTitle">Contact:</span> <a id = "contactData"></a></li>
-                    <li><span class = "dataTitle">Facebook:</span> <a id = "facebookData"></a></li>
+                    <li><span class="dataTitle">Name:</span> <span id="nameData"></span></li>
+                    <li><span class="dataTitle">Contact:</span> <a id="contactData"></a></li>
+                    <li><span class="dataTitle">Facebook:</span> <a id="facebookData"></a></li>
                   </ul>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </div>
     </section>
   </main>
-
 
   <footer>
     <p>Do we even need a footer?</p>
   </footer>
+<script src="https://code.jquery.com/jquery.js"></script>
 <script src="assets/js/congress-script.js"></script>
 <script src="assets/js/script.js"></script>   
 
