@@ -8,17 +8,15 @@ var pullPoliticData = function(event) {
     console.log(localZip);
     event.preventDefault();
     
-    var zipLat = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/bPFXT7f94doreVmq3xglvcSMkik0aLNzKMiq4ggdkSV6obKC1Li3AiDT9cmwufZz/info.json/" + localZip + "/degrees"
+    var zipLat = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/3gViGaWo0FXAWpATeUncO3LrgOb7olNRh6WyOq1qm7n1rvBkW5QEdo7ajb8GqS3o/info.json/" + localZip + "/degrees"
         fetch(zipLat).then(function(response) {
             response.json().then(function(data) {
                 console.log(data)
                 var localLat = data.lat 
                 var localLong = data.lng
-       
-
     
-        var testRep = "https://v3.openstates.org/people.geo?lat=" + localLat + "&lng=" + localLong + "&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"    
-            fetch(testRep).then(function(response) {
+        var findRep = "https://v3.openstates.org/people.geo?lat=" + localLat + "&lng=" + localLong + "&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"    
+            fetch(findRep).then(function(response) {
                 return response.json().then(function(data) {
                     console.log(data)
 
@@ -40,7 +38,6 @@ var pullPoliticData = function(event) {
 
                         // List Name
                         var fetchName = data.results[0].current_role.title + " " + data.results[0].name + " (District " + data.results[0].current_role.district + ")"             
-                        console.log(fetchName)
                         var nameSlot = document.querySelector("#nameData")
                             nameSlot.textContent = fetchName
                         if (data.results[0].party === "Democratic") {
