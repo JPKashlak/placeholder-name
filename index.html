@@ -20,10 +20,10 @@
       <div class = "columns is-centered"  id= "test">
         <div class = "column  is-one-third-tablet is-one-fifth-desktop has-text-centered">
             <label class="label has-text-left">Zip Code</label>
-          <div id="inputForm">
+          <form id="inputForm">
             <input class="input" type="text" id="zip-field" placeholder="Enter your zip code">
             <button type="submit" id="search-button" class="button ml-1">Search</button> 
-          </div>
+          </form>
         </div>
       </div>
 
@@ -40,9 +40,9 @@
               <div>
                 <div class = "content">
                   <ul>
-                    <li><span id="current" class = "dataTitle">Current Cases:</span></li>
-                    <li><span id="recovered" class = "dataTitle">Recovered:</span></li>
-                    <li><span id="deaths" class = "dataTitle">Deaths:</span></li>
+                    <li><span id="current" class = "dataTitle"></span></li>
+                    <li><span id="recovered" class = "dataTitle"></span></li>
+                    <li><span id="deaths" class = "dataTitle"></span></li>
                   </ul>
                 </div>
               </div>
@@ -71,10 +71,7 @@
     </section>
   </main>
 
-  <footer>
-    <p>Do we even need a footer?</p>
-  </footer>
-
+ 
 <!-- script files -->
 <script src="https://code.jquery.com/jquery.js"></script>  
 <script type="text/javascript" src="./assets/js/covidData.js"></script> 
