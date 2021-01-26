@@ -1,33 +1,38 @@
-var userInput = document.getElementById("zip-field");
+var zipEntry = document.getElementById("zip-field");
 var errorMsg =  document.getElementById('error');
-var covidCardTitle = document.getElementById("covid");
-var repCardTitle =  document.getElementById('rep');
+var covidTitle = document.getElementById("covid");
+var repTitle =  document.getElementById('rep');
 var zipInput = document.querySelector("#inputForm")
-var zipEntry = document.querySelector("#zip-field")
 
 
+// display data takes argument for user zip localStorage.setItem(userZip)
+
+
+// get valid zip code from user
 function validateForm() {
-  
-  // show error message if incorrect zipcode input
-  var charCount = JSON.stringify(userInput.value).length - 2;
+
+  var charCount = JSON.stringify(zipEntry.value).length - 2;
+  var userZip = JSON.stringify(zipEntry.value);
 
   if (charCount != 5 || NaN) {
-    userInput.classList.add("is-danger");
+    zipEntry.classList.add("is-danger");
     errorMsg.innerHTML="Zip code must be 5 digits";
   } else {
-    displayData();
+    displayData(userZip);
   }
 }
 
-function displayData() {
 
-  // use the user input to return the county name
-  userZip = JSON.stringify(userInput.value);
-  fetch("http://dev.virtualearth.net/REST/v1/Locations?postalCode=" + userZip + "&key=Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0").then(function(response) {
+// get and display county name
+function displayData(zipCode) {
+
+  fetch(
+    "http://dev.virtualearth.net/REST/v1/Locations?postalCode=" 
+    + zipCode + "&key=Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0")
+    .then(function(response) {
     response.json().then(function(data) {
       var countyName = data.resourceSets[0].resources[0].address.adminDistrict2;
-      covidCardTitle.innerHTML= countyName + " Covid Data";
-      repCardTitle.innerHTML= countyName + " Politican Info";
+      covidTitle.innerHTML= countyName + " Covid Data";
 
   // show the covid and politican cards
   $("div").removeClass("hidden");
@@ -54,66 +59,45 @@ var pullPoliticData = function(event) {
                 return response.json().then(function(data) {
                     console.log(data)
 
-                // Create Card
-                       
-                    // for (var i = 0; i < data.results.length; i++) {
-
-                        // List Portrait
-                        var imageUrl = data.results[0].image
-                        var photoSlot = document.querySelector("#portrait")
-                        var portrait = document.createElement("img")
-                            portrait.src = imageUrl                 
-                            photoSlot.style.width = "150px"
-                            photoSlot.style.height = "200px"        
-                            photoSlot.appendChild(portrait)
-                            if (photoSlot.childNodes.length > 1) {
-                                photoSlot.removeChild(photoSlot.childNodes[0])
-                            }
-
-                        // List Name
-                        var fetchName = data.results[0].current_role.title + " " + data.results[0].name + " (District " + data.results[0].current_role.district + ")"             
-                        var nameSlot = document.querySelector("#nameData")
-                            nameSlot.textContent = fetchName
-                        if (data.results[0].party === "Democratic") {
-                            nameSlot.style.color = "#3636b3"
-                        }
-                        else if (data.results[0].party === "Republican") {
-                            nameSlot.style.color = "#c70909"
-                        }
-                        else {
-                            nameSlot.style.color = "#000000"
-                        }
-                        // List Contact
-                        var webSlot = document.querySelector("#contactData")
-                        if (data.results[0].current_role.title === "Representative") {
-                            webSlot.setAttribute("href", data.results[0].openstates_url)
-                            webSlot.textContent = "Contact your " + data.results[0].current_role.title
-                        }
-                        else if (data.results[0].current_role.title === "Senator") {
-                            webSlot.setAttribute("href", data.results[0].openstates_url)
-                            webSlot.textContent = "Contact your " + data.results[0].current_role.title 
-                        }
-                        else if (data.results[0].current_role.title === "Delegate") {
-                            webSlot.setAttribute("href", data.results[0].openstates_url)
-                            webSlot.textContent = "Contact your " + data.results[0].current_role.title
-                        }
-                        else {
-                            webSlot.setAttribute("href", data.results[0].openstates_url)
-                            webSlot.textContent = "Contact!"
-                        }
+                // List Portrait
+                var imageUrl = data.results[0].image
+                var avatar = document.querySelector("img")
+                    avatar.src = imageUrl                 
                             
-                        //List Facebook
-                        var fetchFacebook = data.results[0].extras.facebook
-                        var facebookSlot = document.querySelector("#facebookData")
-                        if (data.results[0].extras.facebook) {
-                            facebookSlot.textContent = fetchFacebook
-                            facebookSlot.setAttribute("href", fetchFacebook)
-                        }
-                        else {
-                            facebookSlot.textContent = "N/A"
-                            facebookSlot.setAttribute("href", "")
-                        }
-                    // }
+                // List Name
+                var fetchName = data.results[0].current_role.title + " " + data.results[0].name + " (District " + data.results[0].current_role.district + ")"             
+                repTitle.innerHTML= fetchName;
+                        
+                // List Contact
+                $("contact-data").removeClass("hidden");
+                var webSlot = document.getElementById("contact-link")
+                if (data.results[0].current_role.title === "Representative") {
+                    webSlot.setAttribute("href", data.results[0].openstates_url)
+                    webSlot.textContent = "Contact your " + data.results[0].current_role.title
+                }
+                else if (data.results[0].current_role.title === "Senator") {
+                    webSlot.setAttribute("href", data.results[0].openstates_url)
+                    webSlot.textContent = "Contact your " + data.results[0].current_role.title 
+                }
+                else if (data.results[0].current_role.title === "Delegate") {
+                    webSlot.setAttribute("href", data.results[0].openstates_url)
+                    webSlot.textContent = "Contact your " + data.results[0].current_role.title
+                }
+                else {
+                    webSlot.setAttribute("href", data.results[0].openstates_url)
+                    webSlot.textContent = "Contact!"
+                }
+                    
+                //List Facebook
+
+                $("facebook-data").removeClass("hidden");
+                var fetchFacebook = data.results[0].extras.facebook
+                var facebookSlot = document.getElementById("facebook-link")
+                if (data.results[0].extras.facebook) {
+                    facebookSlot.textContent = fetchFacebook
+                    facebookSlot.setAttribute("href", fetchFacebook)
+                }
+               
                 })
             })
         })
