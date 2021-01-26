@@ -1,9 +1,10 @@
 // DOM Variables
 var inputForm = document.querySelector('#inputForm');
 var zipEntry = document.querySelector('#zip-field');
-var currentEl = document.querySelector('#current');
+var newCasesEl = document.querySelector('#new-cases');
 var recoveredEl = document.querySelector('#recovered');
 var deathsEl = document.querySelector('#deaths');
+var riskLevelEl = document.querySelector('#risk-level')
 
 // Global Variables
 var covidNowKey = "bb14400183684b2eba37ecb5a94ee3ec"
@@ -38,15 +39,14 @@ var getCountyData = function (event) {
                     console.log(countyFIPS)
                    
                     // Set covidNow url to variable 
-                                            //*****change harcoded 01001 fipscode to var******
                     var covidApiURL = "https://api.covidactnow.org/v2/county/" + countyFIPS + ".json?apiKey=" + covidNowKey;
                     // Initiate fetch request to covidApi url
                     fetch(covidApiURL).then(function (response) {
                         response.json().then(function (data) {
                             //console.log(data)
                             // Get and display current cases
-                            var currentCases = data.actuals.newCases;
-                            currentEl.innerHTML = " " + currentCases;
+                            var newCases = data.actuals.newCases;
+                            newCasesEl.innerHTML = " " + newCases;
                             console.log(data.actuals.newCases)
 
                             // Get total cases
@@ -62,6 +62,12 @@ var getCountyData = function (event) {
                             var recoveredCnt = totalCases - deathCnt;
                             //console.log(recoveredCnt)
                             recoveredEl.innerHTML = " " + recoveredCnt;
+
+                            // Get and display risk level
+                            var riskLevel = data.riskLevels.overall;
+                            //console.log(recoveredCnt)
+                            riskLevelEl.innerHTML = " " + riskLevel + "/5";
+                            
                         })
                     })
                 })
