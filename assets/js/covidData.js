@@ -46,7 +46,7 @@ var getCountyData = function (event) {
                             //console.log(data)
                             // Get and display current cases
                             var currentCases = data.actuals.newCases;
-                            currentEl.innerText = "Current Cases: " + currentCases;
+                            currentEl.innerHTML = " " + currentCases;
                             console.log(data.actuals.newCases)
 
                             // Get total cases
@@ -56,12 +56,12 @@ var getCountyData = function (event) {
                             // Get and display death cases
                             var deathCnt = data.actuals.deaths;
                             //console.log(data.actuals.deaths)
-                            deathsEl.innerHTML = "Death Cases: " + deathCnt;
+                            deathsEl.innerHTML = " " + deathCnt;
 
                             // Calculate and display recovered cases
                             var recoveredCnt = totalCases - deathCnt;
                             //console.log(recoveredCnt)
-                            recoveredEl.innerHTML = "Recovered Cases: " + recoveredCnt;
+                            recoveredEl.innerHTML = " " + recoveredCnt;
                         })
                     })
                 })
