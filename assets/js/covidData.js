@@ -1,25 +1,27 @@
 // DOM Variables
-var inputForm = document.getElementById('#inputForm');
-var zipEntry = document.getElementById('#zip-field');
-var currentEl = document.getElementById('#current');
-var recoveredEl= document.getElementById('#recovered');
-var deathsEl = document.getElementById('#deaths');
+var inputForm = document.querySelector('#inputForm');
+var zipEntry = document.querySelector('#zip-field');
+var currentEl = document.querySelector('#current');
+var recoveredEl = document.querySelector('#recovered');
+var deathsEl = document.querySelector('#deaths');
 
 // Global Variables
 var covidNowKey = "bb14400183684b2eba37ecb5a94ee3ec"
+var locationApiKey = "3gViGaWo0FXAWpATeUncO3LrgOb7olNRh6WyOq1qm7n1rvBkW5QEdo7ajb8GqS3o"
 var countyFIPS;
 
 
-console.log("*******test*******test*******")
+console.log("*******TEST*******TEST*******")
 /*
-// Capture form input
+// Capture form input toget FIPScode
 var getCountyFips = function (event) {
     event.preventDefault();
     // Set input value to a variable
     var localZip = zipEntry.value.trim();
     console.log(localZip);
+
     // Set api URL to variable based on local zip to get location
-    var zipLocation = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/bPFXT7f94doreVmq3xglvcSMkik0aLNzKMiq4ggdkSV6obKC1Li3AiDT9cmwufZz/info.json/" + localZip + "/degrees"
+    var zipLocation = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/" + locationApiKey + "/info.json/" + localZip + "/degrees"  
     // Initiate fetch request
     fetch(zipLocation).then(function (response) {
         response.json().then(function (data) {
@@ -35,35 +37,36 @@ var getCountyFips = function (event) {
             fetch(fipsFetch).then(function (response) {
                 response.json().then(function (data) {
                     console.log(data.County.FIPS)
-                    // get data fips code and Set to global variable
+                    // Get data fips code and Set to global variable
                     window.countyFIPS = data.County.FIPS
-                    
+                    console.log(countyFIPS)
                 })
             })
         })
     })
 }
-console.log(countyFIPS)
+getCountyFips();
 // Event listener to call getCountyFips code
 //inputForm.addEventListener("submit", getCountyFips);
 
+$(document).click(function(event){
+    function1(event);
+});
 */
-
-
 
 //Function to get county data by countyFIPS from covidNow
 function getCountyData() {
-    // Set covidNow url to variable *****remember to channge harcoded fipscode to variable******
+    // Set covidNow url to variable 
+                            //*****change harcoded 01001 fipscode to var******
     var covidApiURL = "https://api.covidactnow.org/v2/county/" + "01001" + ".json?apiKey=" + covidNowKey;
     // Initiate fetch request to covidApi url
     fetch(covidApiURL).then(function (response) {
         response.json().then(function (data) {
-            //check data
-            console.log(data)
+            //console.log(data)
 
             // Get and display current cases
             var currentCases = data.actuals.newCases;
-            //currentEl.innerHTML = "Current Cases: " + currentCases;
+            currentEl.innerText = "Current Cases: " + currentCases;
             //console.log(data.actuals.newCases)
 
             // Get total cases
@@ -73,18 +76,14 @@ function getCountyData() {
             // Get and display death cases
             var deathCnt = data.actuals.deaths;
             //console.log(data.actuals.deaths)
-            //deathsCasesEl.innerHTML = "Death Cases: " + deathCnt;
+            deathsEl.innerHTML = "Death Cases: " + deathCnt;
 
             // Calculate and display recovered cases
             var recoveredCnt = totalCases - deathCnt;
             //console.log(recoveredCnt)
-            //recoveredCasesEl.innerHTML = "Recovered Cases: " + recoveredCnt
+            recoveredEl.innerHTML = "Recovered Cases: " + recoveredCnt
         })
     });
 }
 
 getCountyData();
-
-
-
-
