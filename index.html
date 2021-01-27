@@ -32,27 +32,27 @@
       <section class="section is-one-third-desktop is-one-third-tablet">
           <!--Covid Column-->
           <div class="container">
-            <div class="card">
+            <div class="card hidden">
               <nav class="level">
                 <!--Active Cases-->
                   <div class="level-item has-text-centered">
                     <div>
-                      <p class="heading" id="activeData">Active Cases</p>
-                      <p class="title is-2 dataTitle">3,456</p>
+                      <p class="heading">Active Cases</p>
+                      <p class="title is-2 dataTitle" id="new-cases"></p>
                     </div>
                   </div>
                   <!--Recovered Cases-->
                   <div class="level-item has-text-centered">
                   <div>
-                    <p class="heading" id="recoveredData">Recovered Cases</p>
-                    <p class="title is-2 dataTitle">3,456</p>
+                    <p class="heading">Recovered Cases</p>
+                    <p class="title is-2 dataTitle" id="recovered"></p>
                   </div>
                 </div>
                   <!--Total Deaths-->
                   <div class="level-item has-text-centered">
                   <div>
-                    <p class="heading" id="deathData">Total Deaths</p>
-                    <p class="title is-2 dataTitle">3,456</p>
+                    <p class="heading">Total Deaths</p>
+                    <p class="title is-2 dataTitle" id="deaths"></p>
                   </div>
                 </div>
               </nav>
@@ -61,7 +61,7 @@
           
           <!--Representative Column-->
           <div class="container">
-            <div class="card">
+            <div class="card hidden">
              
               <!--Avatar-->
               <div class="media">
@@ -71,10 +71,10 @@
                   </figure>
                 </div>
                 <div class="media-content">
-                  <p class="title is-2" id="nameData">John Smith</p>
+                  <p class="title is-2" id="nameData"></p>
                   <div class="buttons">
-                    <a class="button is-danger" id="contactData">Contact your</a>
-                    <a class="button is-danger is-inverted" id="facebookData">View Facebook</a>
+                    <a class="button is-danger" id="contact-link">Contact your</a>
+                    <a class="button is-danger is-inverted" id="facebook-data">View their Facebook</a>
                   </div>
                 </div>
               </div>                
@@ -84,6 +84,10 @@
     </main>
 
     <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="assets/js/script.js"></script>   
+    <script src="assets/js/congress-script.js"></script>
+    <script src="assets/js/covidData.js"></script>
+    <script src="assets/js/script.js"></script> 
+    
+    
   </body>
 </html>

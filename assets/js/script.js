@@ -1,12 +1,19 @@
-var zipEntry = document.getElementById("zip-field");
-var errorMsg =  document.getElementById('error');
-var covidTitle = document.getElementById("covid");
-var repTitle =  document.getElementById('rep');
-var zipInput = document.querySelector("#inputForm")
-var zipEntry = document.querySelector("#zip-field")
+var config = {
+  virtualEarthKey: "Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0",
+  zipCodeKey1: "3gViGaWo0FXAWpATeUncO3LrgOb7olNRh6WyOq1qm7n1rvBkW5QEdo7ajb8GqS3o",
+  openStatesKey: "72659b34-798d-4441-b6ee-c86ef9973ebb"
+}
+
+
+var repTitle =  document.getElementById('nameData');
+var zipInput = document.querySelector("#inputForm");
+var zipEntry = document.querySelector("#zip-field");
 var virtualEarthKey = config.virtualEarthKey;
 var zipCodeKey1 = config.zipCodeKey1;
 var openStatesKey = config.openStatesKey;
+
+
+
 
 
 // display data takes argument for user zip localStorage.setItem(userZip)
@@ -28,17 +35,12 @@ function validateForm() {
 
 function displayData() {
   // use the user input to return the county name
-  userZip = JSON.stringify(userInput.value);
-  fetch("http://dev.virtualearth.net/REST/v1/Locations?postalCode=" + userZip + "&key=" + virtualEarthKey).then(function(response) {
-    response.json().then(function(data) {
-      var countyName = data.resourceSets[0].resources[0].address.adminDistrict2;
-      covidTitle.innerHTML= countyName + " Covid Data";
+  userZip = JSON.stringify(zipInput.value);
 
   // show the covid and politican cards
   $("div").removeClass("hidden");
-    });
-  });
-}
+   
+};
 
 
 var pullPoliticData = function(event) {
