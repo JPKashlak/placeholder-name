@@ -71,24 +71,20 @@ function loadZips() {
 }
    
 
-
 var pullPoliticData = function(event) {
 
     var localZip = zipEntry.value.trim();
-    console.log(localZip);
     event.preventDefault();
     
     var zipLat = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/" + zipCodeKey1 + "/info.json/" + localZip + "/degrees"
         fetch(zipLat).then(function(response) {
             response.json().then(function(data) {
-                console.log(data)
                 var localLat = data.lat 
                 var localLong = data.lng
     
         var findRep = "https://v3.openstates.org/people.geo?lat=" + localLat + "&lng=" + localLong + "&apikey=" + openStatesKey    
             fetch(findRep).then(function(response) {
                 return response.json().then(function(data) {
-                    console.log(data)
 
                 // List Portrait
                 var imageUrl = data.results[0].image
