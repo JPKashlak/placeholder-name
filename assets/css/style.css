@@ -97,3 +97,21 @@ a.tag {
 img {
   max-width: 96px;
 }
+
+@media only screen and (max-width: 500px) {
+  .media {
+    display: inline-block;
+    width: 100%;
+  }
+  .media-left {
+    display: inline;
+  }
+  .media-right {
+    display: inline;
+    width: 100%;
+  }
+  .card {
+    padding: 12px;
+    margin-bottom: 32px;
+  }
+}
