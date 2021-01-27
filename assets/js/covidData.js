@@ -37,17 +37,17 @@ var getCountyData = function (event) {
                     // Get data fips code and Set to global variable
                     var countyFIPS = data.County.FIPS;
                     console.log(countyFIPS)
-                   
+
                     // Set covidNow url to variable 
                     var covidApiURL = "https://api.covidactnow.org/v2/county/" + countyFIPS + ".json?apiKey=" + covidNowKey;
                     // Initiate fetch request to covidApi url
                     fetch(covidApiURL).then(function (response) {
                         response.json().then(function (data) {
                             //console.log(data)
-                            // Get and display current cases
+
+                            // Get and display new cases
                             var newCases = data.actuals.newCases;
                             newCasesEl.innerHTML = " " + newCases;
-                            console.log(data.actuals.newCases)
 
                             // Get total cases
                             var totalCases = data.actuals.cases;
@@ -61,12 +61,12 @@ var getCountyData = function (event) {
                             // Calculate and display recovered cases
                             var recoveredCnt = totalCases - deathCnt;
                             //console.log(recoveredCnt)
-                            recoveredEl.innerHTML = " " + recoveredCnt;
+                            recoveredEl.innerHTML = " " + recoveredCnt
 
                             // Get and display risk level
                             var riskLevel = data.riskLevels.overall;
-                            //console.log(recoveredCnt)
-                            riskLevelEl.innerHTML = " " + riskLevel + "/5";
+                            riskLevelEl.innerHTML = " " + riskLevel;
+                            console.log(riskLevel)
                             
                         })
                     })
