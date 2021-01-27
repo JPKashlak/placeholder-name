@@ -5,42 +5,69 @@ var config = {
 }
 
 
-var repTitle =  document.getElementById('nameData');
+var repTitle =  document.getElementById('name-data');
 var zipInput = document.querySelector("#inputForm");
+var savedZips =  document.getElementById('saved-zips');
 var zipEntry = document.querySelector("#zip-field");
 var virtualEarthKey = config.virtualEarthKey;
 var zipCodeKey1 = config.zipCodeKey1;
 var openStatesKey = config.openStatesKey;
-
-
-
-
+let currentZips
+  if (localStorage.getItem('zip')) {
+    currentZips = JSON.parse(localStorage.getItem('zip'))
+  } else {
+    currentZips = []
+  }
 
 // display data takes argument for user zip localStorage.setItem(userZip)
 
-
 // get valid zip code from user
 function validateForm() {
-
   var charCount = JSON.stringify(zipEntry.value).length - 2;
-  var userZip = JSON.stringify(zipEntry.value);
 
   if (charCount != 5 || NaN) {
     zipEntry.classList.add("is-danger");
     errorMsg.innerHTML="Zip code must be 5 digits";
   } else {
-    displayData(userZip);
+    zipEntry.val('');
+    displayData();
   }
 }
 
 function displayData() {
-  // use the user input to return the county name
-  userZip = JSON.stringify(zipInput.value);
+  var localZip = zipEntry.value.trim();
 
+  // if zips exist, append to array
+  currentZips.push(localZip)
+  localStorage.setItem("zip", JSON.stringify(currentZips))
   // show the covid and politican cards
   $("div").removeClass("hidden");
-   
+  storeZips();
+
 };
+
+function storeZips() {
+  var localZip = zipEntry.value.trim();
+  newZipEl = document.createElement('a');
+  newZipEl.innerHTML = localZip;
+  newZipEl.setAttribute('class', 'tag');
+  newZipEl.setAttribute('href', 'http://google.com');
+  savedZips.appendChild(newZipEl);
+}
+
+function loadZips() {
+  // loop through savedTasks array
+  for (var i = 0; i < currentZips.length; i++) {
+    // pass each task object into the `createTaskEl()` function
+    newZipEl = document.createElement('a');
+    newZipEl.innerHTML = currentZips[i];
+    newZipEl.setAttribute('class', 'tag');
+    newZipEl.setAttribute('href', 'http://google.com');
+    savedZips.appendChild(newZipEl);
+
+  }
+}
+   
 
 
 var pullPoliticData = function(event) {
@@ -92,11 +119,9 @@ var pullPoliticData = function(event) {
                     
                 //List Facebook
 
-                $("facebook-data").removeClass("hidden");
                 var fetchFacebook = data.results[0].extras.facebook
-                var facebookSlot = document.getElementById("facebook-link")
+                var facebookSlot = document.getElementById("facebook-data")
                 if (data.results[0].extras.facebook) {
-                    facebookSlot.textContent = fetchFacebook
                     facebookSlot.setAttribute("href", fetchFacebook)
                 }
                
@@ -106,4 +131,5 @@ var pullPoliticData = function(event) {
     }) 
 }
 
+loadZips();
 zipInput.addEventListener("submit", pullPoliticData)
