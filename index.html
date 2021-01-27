@@ -1,89 +1,100 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Project 1</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
-    <link rel="stylesheet" href="./assets/css/style.css">
-</head>
-<body>
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Who you gonna call?</title>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.9.1/css/bulma.min.css">
+      <link rel="stylesheet" href="./assets/css/style.css">
+  </head>
 
-  <header>
-    <p class="title is-1 has-text-centered">Title</p>
-  </header>
+  <body>
 
-  <main>
+    <header>
+      <p class="title is-1 has-text-centered">Who you gonna call?</p>
+    </header>
 
-    <!--Zip Code Form-->
-
-      <h1 class="has-text-centered">Enter your zip to get the latest covid data & your local reps info</h1>
-      <div class = "columns is-centered"  id="test">
-        <div class = "column is-half-mobile is-one-third-tablet is-one-third-desktop has-text-centered">
-          <label class="label has-text-left">Zip Code</label>
-          <form id="inputForm">
-            <input class="input is-large" type="text" id="zip-field" placeholder="Enter your zip code">
-            <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
-          </form>
-          <p class="help is-danger has-text-left" id="error"></p>
-        </div>
-      </div>
-
-    <!--Card Columns-->
-      <div id="cardColumns" class="columns is-centered">
-        <!--First Card-->
-        <div class="column is-one-third-desktop is-one-third-tablet">
-          <div class ="card hidden">
-            <div class="card-header">
-              <p id="covid" class="card-header-title title is-4"></p>
-            </div>
-            <div>
-              <div class="content">
-                <ul>
-                  <li><span class="dataTitle">New Cases:</span><span id="new-cases"></span></li>
-                  <li><span class="dataTitle">Recovered Cases:</span> <span id="recovered"></span></li>
-                  <li><span class="dataTitle">Death Cases:</span><span id="deaths"></span></li>
-                  <li><span class="dataTitle">Risk Level:</span><span id="risk-level"></span></li>
-                </ul>
-              </div>
-            </div>
+    <main>
+      <!--Zip Code Form-->
+        <h1 class="has-text-centered">Enter your zip to get the latest covid data & your local reps info</h1>
+        <div class = "columns is-centered">
+          <div class="column is-half-mobile is-one-third-tablet is-one-third-desktop has-text-centered">
+            <label class="label has-text-left">Zip Code</label>
+            <form id="inputForm">
+              <input class="input is-large" type="text" id="zip-field" placeholder="Enter your zip code">
+              <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
+            </form>
+            <p class="help is-danger has-text-left" id="error"></p>
           </div>
         </div>
-          <!--Second Card-->
-          <div id = "politic-card"></div>
 
-          <div class="column is-one-third-desktop is-one-third-tablet">
-            <div class ="card hidden"> 
-              <div class = "card-header">
-                <p class = "card-header-title title is-4" id="rep">
-                  
-                </p>
-              </div>
-
-              <div class="card-image" id="portrait"></div>
-                                  
-              <div>
-                <div class = "content">
-                  <ul>
-                    <li><span class="dataTitle">Name:</span> <span id="nameData"></span></li>
-                    <li><span class="dataTitle">Contact:</span> <a id="contactData" target="_blank"></a></li>
-                    <li><span class="dataTitle">Facebook:</span> <a id="facebookData" target="_blank"></a></li>
-                  </ul>
+      <!--Card Columns-->
+      <section class="section is-one-third-desktop is-one-third-tablet">
+          <!--Covid Column-->
+          <div class="container">
+            <div class="card hidden">
+              <nav class="level">
+                <!--Active Cases-->
+                  <div class="level-item has-text-centered">
+                    <div>
+                      <p class="heading">Active Cases</p>
+                      <p class="title is-2 dataTitle" id="new-cases"></p>
+                    </div>
+                  </div>
+                  <!--Recovered Cases-->
+                  <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Recovered Cases</p>
+                    <p class="title is-2 dataTitle" id="recovered"></p>
+                  </div>
                 </div>
-              </div>
+                  <!--Total Deaths-->
+                  <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Total Deaths</p>
+                    <p class="title is-2 dataTitle" id="deaths"></p>
+                  </div>
+                </div>
+                <!--Risk Level-->
+                <div class="level-item has-text-centered">
+                  <div>
+                    <p class="heading">Risk Level</p>
+                    <p class="title is-2 dataTitle" id="risk-level"></p>
+                  </div>
+                </div>
+              </nav>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
-  </main>
+          
+          <!--Representative Column-->
+          <div class="container">
+            <div class="card hidden">
+             
+              <!--Avatar-->
+              <div class="media">
+                <div class="media-left margin-32">
+                  <figure class="image is-96x96">
+                    <img class="is-rounded" id="portrait" src="https://bulma.io/images/placeholders/96x96.png" alt="Politician Headshot">
+                  </figure>
+                </div>
+                <div class="media-content">
+                  <p class="title is-2" id="nameData"></p>
+                  <div class="buttons">
+                    <a class="button is-danger" id="contact-link">Contact your</a>
+                    <a class="button is-danger is-inverted" id="facebook-data">View their Facebook</a>
+                  </div>
+                </div>
+              </div>                
+            </div>
+          </div>
+        </section>
+    </main>
 
- 
-<!-- script files -->
-<script src="https://code.jquery.com/jquery.js"></script>  
-<script type="text/javascript" src="assets/js/covidData.js"></script> 
-<script type="text/javascript" src="assets/js/config.js"></script>
-<script type="text/javascript" src="assets/js/script.js"></script>   
-
-</body>
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="assets/js/congress-script.js"></script>
+    <script src="assets/js/covid-data.js"></script>
+    <script src="assets/js/script.js"></script> 
+    
+    
+  </body>
 </html>
