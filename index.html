@@ -19,58 +19,60 @@
 
     <main>
       <!--Zip Code Form-->
-        <h1 class="has-text-centered">Enter your zip to get the latest covid data & your local reps info</h1>
-        <div class="columns is-centered">
-          <div class="column is-12 is-half-mobile is-one-third-tablet is-one-third-desktop has-text-centered">
-            <label class="label has-text-left">Zip Code</label>
-            <form id="inputForm">
-              <input class="input is-large has-icons-left" type="text" id="zip-field" placeholder="Enter your zip code">
-              <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Get local info</button> 
+      <section class="section is-4">
+          <div class="container is-max-desktop">
+            <h1 class="has-text-centered">Get the latest Covid-19 data in your county, and your local representative information.</h1>
+            <form id="inputForm" class="control has-icons-left has-icons-right">
+                <input class="input is-large has-icons-left" type="text" id="zip-field" placeholder="Zip code">
+                <p class="help is-danger has-text-left" id="error"></p>
+                <span class="icon is-medium is-left">
+                  <i class='fas fa-map-marker-alt'></i>
+                </span>
+                <span>
+                  <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
+                </span>
             </form>
-            <p class="help is-danger has-text-left" id="error"></p>
           </div>
-         
-        </div>
-        <div class="columns is-centered">
-        <div class="column is-4 is-centered" id="saved-zips">
+          <div class="container is-max-desktop is-centered" id="saved-zips">
     
-        </div>
+          </div>
+        </section>
       </div>
      
         
 
       <!--Card Columns-->
-      <section class="section is-one-third-desktop is-one-third-tablet">
+      <section class="section">
           <!--Covid Column-->
-          <div class="container">
+          <div class="container is-max-desktop">
             <div class="card hidden">
               <nav class="level">
                 <!--Active Cases-->
                   <div class="level-item has-text-centered">
                     <div>
                       <p class="heading">Active Cases</p>
-                      <p class="title is-2 dataTitle" id="new-cases"></p>
+                      <p class="title is-2 dataTitle" id="new-cases">-</p>
                     </div>
                   </div>
                   <!--Recovered Cases-->
                   <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Recovered Cases</p>
-                    <p class="title is-2 dataTitle" id="recovered"></p>
+                    <p class="title is-2 dataTitle" id="recovered">-</p>
                   </div>
                 </div>
                   <!--Total Deaths-->
                   <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Total Deaths</p>
-                    <p class="title is-2 dataTitle" id="deaths"></p>
+                    <p class="title is-2 dataTitle" id="deaths">-</p>
                   </div>
                 </div>
                 <!--Risk Level-->
                 <div class="level-item has-text-centered">
                   <div>
                     <p class="heading">Risk Level</p>
-                    <p class="title is-2 dataTitle" id="risk-level"></p>
+                    <p class="title is-2 dataTitle" id="risk-level">-</p>
                   </div>
                 </div>
               </nav>
@@ -78,24 +80,26 @@
           </div>
           
           <!--Representative Column-->
-          <div class="container">
+          <div class="container is-max-desktop">
             <div class="card hidden">
              
               <!--Avatar-->
               <div class="media">
-                <div class="media-left margin-32">
+              <div class="media-left">
                   <figure class="image is-96x96">
-                    <img class="is-rounded" id="portrait" src="https://bulma.io/images/placeholders/96x96.png" alt="Politician Headshot">
+                    <img id="portrait" src="https://bulma.io/images/placeholders/96x96.png" alt="Politician Headshot">
                   </figure>
                 </div>
-                <div class="media-content">
-                  <p class="title is-2" id="name-data"></p>
-                  <p class="title is-4" id="role-data"></p>
-                  <div class="buttons">
-                    <a class="button is-danger" id="contact-link">Contact your</a>
-                    <a class="button is-danger is-inverted" id="facebook-data">View their Facebook</a>
-                  </div>
+              <div class="media-content">
+                
+              <div class="media-right">
+                  <p class="title is-3" id="name-data"></p>
+                  <p class="title is-5" id="role-data"></p>
+                 
+                    <a class="button is-danger is-fullwidth is-large" id="contact-link">Contact your Representative</a>
+                 
                 </div>
+              </div>
               </div>                
             </div>
           </div>

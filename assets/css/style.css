@@ -13,14 +13,17 @@ header {
 }
 
 h1 {
-  padding-top: 32px;
+  padding-top: 64px;
   font-size: 1.6rem;
-  margin-bottom: 48px;
+  margin-bottom: 64px;
 }
 
-body,
-.field-label {
+body {
   font-size: 1.2rem;
+}
+
+.label {
+  vertical-align: center;
 }
 
 /* input styles */
@@ -45,6 +48,12 @@ input {
   color: white;
 }
 
+.button:after {
+  border-style: none;
+  background-color: rgb(54, 54, 179);
+  color: white;
+}
+
 .title {
   font-weight: bold;
 }
@@ -55,16 +64,16 @@ input {
 
 .card {
   padding: 32px 56px;
-  margin: 32px;
+  margin-bottom: 32px;
 }
 
 .media-left {
-  width: 128px;
+  width: 160px;
 }
 
 .tag {
-  margin: 2px;
-  padding: 0 4px;
+  margin: 8px 12px 4pxgi 0;
+  padding: 2px 4px;
   border: 2px solid rgb(241, 134, 134);
   background-color: white;
 }
@@ -78,4 +87,8 @@ a.tag {
 
 .fas {
   margin-right: 8px;
+}
+
+img {
+  max-width: 96px;
 }
