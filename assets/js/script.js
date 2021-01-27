@@ -25,6 +25,7 @@ let currentZips
 
 // get valid zip code from user
 function validateForm() {
+  
   var charCount = JSON.stringify(zipEntry.value).length - 2;
 
   if (charCount != 5 || NaN) {
@@ -50,7 +51,7 @@ function displayData() {
 function storeZips() {
   var localZip = zipEntry.value.trim();
   newZipEl = document.createElement('a');
-  newZipEl.innerHTML = localZip;
+  newZipEl.innerHTML = "<i class='fas fa-map-marker-alt'></i> " + localZip;
   newZipEl.setAttribute('class', 'tag');
   newZipEl.setAttribute('href', 'http://google.com');
   savedZips.appendChild(newZipEl);
@@ -61,7 +62,7 @@ function loadZips() {
   for (var i = 0; i < currentZips.length; i++) {
     // pass each task object into the `createTaskEl()` function
     newZipEl = document.createElement('a');
-    newZipEl.innerHTML = currentZips[i];
+    newZipEl.innerHTML = "<i class='fas fa-map-marker-alt'></i> " + currentZips[i];
     newZipEl.setAttribute('class', 'tag');
     newZipEl.setAttribute('href', 'http://google.com');
     savedZips.appendChild(newZipEl);

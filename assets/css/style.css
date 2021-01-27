@@ -34,8 +34,9 @@ input {
 
 /* search button styles */
 .button {
-  color: rgb(54, 54, 179);
-  border: 2px solid rgb(54, 54, 179);
+  border-style: none;
+  background-color: rgb(54, 54, 179);
+  color: white;
 }
 
 .button:hover {
@@ -62,12 +63,19 @@ input {
 }
 
 .tag {
-  margin-right: 4px;
+  margin: 2px;
   padding: 0 4px;
+  border: 2px solid rgb(241, 134, 134);
+  background-color: white;
 }
 
 a.tag {
-  background-color: #777777;
-  color: white;
+  color: rgb(241, 134, 134);
   font-size: 1.2rem;
+  background-color: white;
+  font-style: bold;
+}
+
+.fas {
+  margin-right: 8px;
 }
