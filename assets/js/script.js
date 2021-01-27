@@ -5,10 +5,12 @@ var config = {
 }
 
 
-var repTitle =  document.getElementById('name-data');
+var repName =  document.getElementById('name-data');
+var repTitle =  document.getElementById('role-data');
 var zipInput = document.querySelector("#inputForm");
 var savedZips =  document.getElementById('saved-zips');
 var zipEntry = document.querySelector("#zip-field");
+var errorMsg = document.getElementById('error')
 var virtualEarthKey = config.virtualEarthKey;
 var zipCodeKey1 = config.zipCodeKey1;
 var openStatesKey = config.openStatesKey;
@@ -29,7 +31,6 @@ function validateForm() {
     zipEntry.classList.add("is-danger");
     errorMsg.innerHTML="Zip code must be 5 digits";
   } else {
-    zipEntry.val('');
     displayData();
   }
 }
@@ -94,8 +95,12 @@ var pullPoliticData = function(event) {
                     avatar.src = imageUrl                 
                             
                 // List Name
-                var fetchName = data.results[0].current_role.title + " " + data.results[0].name + " (District " + data.results[0].current_role.district + ")"             
-                repTitle.innerHTML= fetchName;
+                var fetchName = data.results[0].current_role.title + " " + data.results[0].name           
+                repName.innerHTML= fetchName;
+
+                // List Title
+                var fetchTitle = "District " + data.results[0].current_role.district       
+                repTitle.innerHTML= fetchTitle;
                         
                 // List Contact
                 $("contact-data").removeClass("hidden");
