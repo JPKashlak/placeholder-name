@@ -26,20 +26,10 @@ function validateForm() {
   }
 }
 
-
-<<<<<<< HEAD
-// get and display county name
-function displayData(zipCode) {
-
-  fetch(
-    "http://dev.virtualearth.net/REST/v1/Locations?postalCode=" 
-    + zipCode + "&key=Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0")
-    .then(function(response) {
-=======
+function displayData() {
   // use the user input to return the county name
   userZip = JSON.stringify(userInput.value);
   fetch("http://dev.virtualearth.net/REST/v1/Locations?postalCode=" + userZip + "&key=" + virtualEarthKey).then(function(response) {
->>>>>>> 751f5cd539c44bc7ae2c2ba0a2a190928d633cdd
     response.json().then(function(data) {
       var countyName = data.resourceSets[0].resources[0].address.adminDistrict2;
       covidTitle.innerHTML= countyName + " Covid Data";
