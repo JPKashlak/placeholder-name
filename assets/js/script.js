@@ -3,6 +3,10 @@ var errorMsg =  document.getElementById('error');
 var covidTitle = document.getElementById("covid");
 var repTitle =  document.getElementById('rep');
 var zipInput = document.querySelector("#inputForm")
+var zipEntry = document.querySelector("#zip-field")
+var virtualEarthKey = config.virtualEarthKey;
+var zipCodeKey1 = config.zipCodeKey1;
+var openStatesKey = config.openStatesKey;
 
 
 // display data takes argument for user zip localStorage.setItem(userZip)
@@ -23,6 +27,7 @@ function validateForm() {
 }
 
 
+<<<<<<< HEAD
 // get and display county name
 function displayData(zipCode) {
 
@@ -30,6 +35,11 @@ function displayData(zipCode) {
     "http://dev.virtualearth.net/REST/v1/Locations?postalCode=" 
     + zipCode + "&key=Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0")
     .then(function(response) {
+=======
+  // use the user input to return the county name
+  userZip = JSON.stringify(userInput.value);
+  fetch("http://dev.virtualearth.net/REST/v1/Locations?postalCode=" + userZip + "&key=" + virtualEarthKey).then(function(response) {
+>>>>>>> 751f5cd539c44bc7ae2c2ba0a2a190928d633cdd
     response.json().then(function(data) {
       var countyName = data.resourceSets[0].resources[0].address.adminDistrict2;
       covidTitle.innerHTML= countyName + " Covid Data";
@@ -47,14 +57,14 @@ var pullPoliticData = function(event) {
     console.log(localZip);
     event.preventDefault();
     
-    var zipLat = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/3gViGaWo0FXAWpATeUncO3LrgOb7olNRh6WyOq1qm7n1rvBkW5QEdo7ajb8GqS3o/info.json/" + localZip + "/degrees"
+    var zipLat = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/" + zipCodeKey1 + "/info.json/" + localZip + "/degrees"
         fetch(zipLat).then(function(response) {
             response.json().then(function(data) {
                 console.log(data)
                 var localLat = data.lat 
                 var localLong = data.lng
     
-        var findRep = "https://v3.openstates.org/people.geo?lat=" + localLat + "&lng=" + localLong + "&apikey=72659b34-798d-4441-b6ee-c86ef9973ebb"    
+        var findRep = "https://v3.openstates.org/people.geo?lat=" + localLat + "&lng=" + localLong + "&apikey=" + openStatesKey    
             fetch(findRep).then(function(response) {
                 return response.json().then(function(data) {
                     console.log(data)

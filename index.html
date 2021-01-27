@@ -40,9 +40,10 @@
             <div>
               <div class="content">
                 <ul>
-                  <li><span class = "dataTitle">Active Cases:</span> <span id = "activeData"></span></li>
-                  <li><span class = "dataTitle">Recovered Cases:</span> <span id = "recoveredData"></span></li>
-                  <li><span class = "dataTitle">Number of Deaths:</span> <span id = "deathData"></span></li>
+                  <li><span class="dataTitle"></span>New Cases: <span id="new-cases"></span></li>
+                  <li><span class="dataTitle"></span>Recovered Cases: <span id="recovered"></span></li>
+                  <li><span class="dataTitle"></span>Death Cases: <span id="deaths"></span></li>
+                  <li><span class="dataTitle"></span>Risk Level: <span id="risk-level"></span></li>
                 </ul>
               </div>
             </div>
@@ -65,8 +66,8 @@
                 <div class = "content">
                   <ul>
                     <li><span class="dataTitle">Name:</span> <span id="nameData"></span></li>
-                    <li><span class="dataTitle">Contact:</span> <a id="contactData"></a></li>
-                    <li><span class="dataTitle">Facebook:</span> <a id="facebookData"></a></li>
+                    <li><span class="dataTitle">Contact:</span> <a id="contactData" target="_blank"></a></li>
+                    <li><span class="dataTitle">Facebook:</span> <a id="facebookData" target="_blank"></a></li>
                   </ul>
                 </div>
               </div>
@@ -77,10 +78,12 @@
     </section>
   </main>
 
-  
-<script src="https://code.jquery.com/jquery.js"></script>
-
-<script src="assets/js/script.js"></script>   
+ 
+<!-- script files -->
+<script src="https://code.jquery.com/jquery.js"></script>  
+<script type="text/javascript" src="/assets/js/covidData.js"></script> 
+<script type="text/javascript" src="assets/js/config.js"></script>
+<script type="text/javascript" src="assets/js/script.js"></script>   
 
 </body>
 </html>
