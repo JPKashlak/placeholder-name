@@ -4,9 +4,11 @@ var zipInput = document.querySelector("#inputForm");
 var savedZips = document.getElementById('saved-zips');
 var zipEntry = document.querySelector("#zip-field");
 var errorMsg = document.getElementById('error')
-var virtualEarthKey = config.virtualEarthKey;
-var zipCodeKey1 = config.zipCodeKey1;
-var openStatesKey = config.openStatesKey;
+var virtualEarthKey = "Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0"
+var zipCodeKey1 = "3gViGaWo0FXAWpATeUncO3LrgOb7olNRh6WyOq1qm7n1rvBkW5QEdo7ajb8GqS3o"
+var openStatesKey = "72659b34-798d-4441-b6ee-c86ef9973ebb"
+var covidNowKey = "bb14400183684b2eba37ecb5a94ee3ec"
+var locationApiKey = "gP9CQYmEWlWJlQqnbTplLqofQ5aDvzJzR1dpk7McZKa6DDIuLdXEsfgJR50LpVfC"
 let currentZips
 if (localStorage.getItem('zip')) {
   currentZips = JSON.parse(localStorage.getItem('zip'))

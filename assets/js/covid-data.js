@@ -1,7 +1,3 @@
-// Global Variables
-var covidNowKey = config.covidNowKey
-var locationApiKey = config.locationApiKey
-
 // DOM Variables
 var newCasesEl = document.getElementById('new-cases');
 var recoveredEl = document.getElementById('recovered');
@@ -9,9 +5,11 @@ var deathsEl = document.getElementById('deaths');
 var riskLevelEl = document.getElementById('risk-level')
 var zipInput = document.querySelector("#inputForm");
 var zipEntry = document.querySelector("#zip-field");
-var virtualEarthKey = config.virtualEarthKey;
-var zipCodeKey1 = config.zipCodeKey1;
-var openStatesKey = config.openStatesKey;
+var virtualEarthKey = "Ag9vSCbKCVavmpm_CAS77TmHeRGxbmAxECOfwknIrua4eOT9rwT4ifxTOuwC9-V0"
+var zipCodeKey1 = "3gViGaWo0FXAWpATeUncO3LrgOb7olNRh6WyOq1qm7n1rvBkW5QEdo7ajb8GqS3o"
+var openStatesKey = "72659b34-798d-4441-b6ee-c86ef9973ebb"
+var covidNowKey = "bb14400183684b2eba37ecb5a94ee3ec"
+var locationApiKey = "gP9CQYmEWlWJlQqnbTplLqofQ5aDvzJzR1dpk7McZKa6DDIuLdXEsfgJR50LpVfC"
 
 // Capture form input toget FIPScode
 var getCountyData = function (event) {
