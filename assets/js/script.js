@@ -16,8 +16,6 @@ if (localStorage.getItem('zip')) {
   currentZips = []
 }
 
-// display data takes argument for user zip localStorage.setItem(userZip)
-
 // get valid zip code from user
 function validateForm() {
 
@@ -66,8 +64,6 @@ function loadZips() {
 
   }
 }
-
-
 
 var pullPoliticData = function (event) {
 
