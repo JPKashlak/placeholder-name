@@ -8,108 +8,107 @@
       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css" integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w==" crossorigin="anonymous" />
       <link rel="stylesheet" href="./assets/css/style.css">
-
   </head>
 
   <body>
-
-    <header>
-      <p class="title is-1 has-text-centered">Who you gonna call?</p>
+		<header>
+			<p class="title is-1 has-text-centered">
+				Who you gonna call?
+			</p>
     </header>
-
-    <main>
-      <!--Zip Code Form-->
-      <section class="section is-4">
-          <div class="container is-max-desktop">
-            <h1 class="has-text-centered">Get the latest Covid-19 data in your county, and your local representative information.</h1>
-            <form id="inputForm" class="control has-icons-left has-icons-right">
-                <input class="input is-large has-icons-left" type="text" id="zip-field" placeholder="Zip code">
-                <p class="help is-danger has-text-left" id="error"></p>
-                <span class="icon is-medium is-left">
-                  <i class='fas fa-map-marker-alt'></i>
-                </span>
-                <span>
-                  <button type="submit" class="button ml-1 is-large" onclick="validateForm()">Search</button> 
-                </span>
-            </form>
-          </div>
-          <div class="container is-max-desktop is-centered" id="saved-zips">
     
-          </div>
-        </section>
-      </div>
-     
-        
-
+		<main>
+			<!--Zip Code Form-->
+			<section class="section is-4">
+				<div class="container is-max-desktop">
+					<h1 class="has-text-centered">
+						Get the latest Covid-19 data in your county, and your local representative information.
+					</h1>
+					<form class="control has-icons-left has-icons-right" id="inputForm" name="inputForm">
+						<input class="input is-large has-icons-left" id="zip-field" placeholder="Zip code" type="text">
+						<p class="help is-danger has-text-left" id="error"></p><span class="icon is-medium is-left"><i class='fas fa-map-marker-alt'></i></span> <span><button class="button ml-1 is-large" onclick="validateForm()" type="submit"><span><span><span><span><span><span><span><span><span>Search</span></span></span></span></span></span></span></span></span></button></span>
+					</form>
+				</div>
+				<div class="container is-max-desktop is-centered" id="saved-zips"></div>
+      </section>
+      
       <!--Card Columns-->
-      <section class="section">
-          <!--Covid Column-->
-          <div class="container is-max-desktop">
-            <div class="card hidden">
-              <nav class="level">
-                <!--Active Cases-->
-                  <div class="level-item has-text-centered">
-                    <div>
-                      <p class="heading">Active Cases</p>
-                      <p class="title is-2 dataTitle" id="new-cases">-</p>
-                    </div>
-                  </div>
-                  <!--Recovered Cases-->
-                  <div class="level-item has-text-centered">
-                  <div>
-                    <p class="heading">Recovered Cases</p>
-                    <p class="title is-2 dataTitle" id="recovered">-</p>
-                  </div>
-                </div>
-                  <!--Total Deaths-->
-                  <div class="level-item has-text-centered">
-                  <div>
-                    <p class="heading">Total Deaths</p>
-                    <p class="title is-2 dataTitle" id="deaths">-</p>
-                  </div>
-                </div>
-                <!--Risk Level-->
-                <div class="level-item has-text-centered">
-                  <div>
-                    <p class="heading">Risk Level</p>
-                    <p class="title is-2 dataTitle" id="risk-level">-</p>
-                  </div>
-                </div>
-              </nav>
-            </div>
-          </div>
-          
-          <!--Representative Column-->
-          <div class="container is-max-desktop">
-            <div class="card hidden">
-             
-              <!--Avatar-->
-              <div class="media">
-              <div class="media-left">
-                  <figure class="image is-96x96">
-                    <img id="portrait" src="https://bulma.io/images/placeholders/96x96.png" alt="Politician Headshot">
-                  </figure>
-                </div>
-              <div class="media-content">
-                
-              <div class="media-right">
-                  <p class="title is-3" id="name-data"></p>
-                  <p class="title is-5" id="role-data"></p>
-                 
-                    <a class="button is-danger is-fullwidth is-large" id="contact-link">Contact your Representative</a>
-                 
-                </div>
+			<section class="section">
+				<!--Covid Column-->
+				<div class="container is-max-desktop">
+					<div class="card hidden">
+						<nav class="level">
+							<!--Active Cases-->
+							<div class="level-item has-text-centered">
+								<div>
+									<p class="heading">
+										Active Cases
+									</p>
+									<p class="title is-2 dataTitle" id="new-cases">
+										-
+									</p>
+								</div>
               </div>
-              </div>                
-            </div>
-          </div>
-        </section>
-    </main>
-
-    <script src="https://code.jquery.com/jquery.js"></script>
-    <script src="assets/js/covid-data.js"></script>
-    <script src="assets/js/script.js"></script> 
-    
-    
-  </body>
+              <!--Recovered Cases-->
+							<div class="level-item has-text-centered">
+								<div>
+									<p class="heading">
+										Recovered Cases
+									</p>
+									<p class="title is-2 dataTitle" id="recovered">
+										-
+									</p>
+								</div>
+              </div>
+              <!--Total Deaths-->
+							<div class="level-item has-text-centered">
+								<div>
+									<p class="heading">
+										Total Deaths
+									</p>
+									<p class="title is-2 dataTitle" id="deaths">
+										-
+									</p>
+								</div>
+              </div>
+              <!--Risk Level-->
+							<div class="level-item has-text-centered">
+								<div>
+									<p class="heading">
+										Risk Level
+									</p>
+									<p class="title is-2 dataTitle" id="risk-level">
+										-
+									</p>
+								</div>
+							</div>
+						</nav>
+					</div>
+        </div>
+        <!--Representative Column-->
+				<div class="container is-max-desktop">
+					<div class="card hidden">
+						<!--Avatar-->
+						<div class="media">
+							<div class="media-left">
+								<figure class="image is-96x96">
+									<img alt="Politician Headshot" id="portrait" src="https://bulma.io/images/placeholders/96x96.png">
+								</figure>
+							</div>
+							<div class="media-content">
+								<div class="media-right">
+									<p class="title is-3" id="name-data"></p>
+									<p class="title is-5" id="role-data"></p><a class="button is-danger is-fullwidth is-large" id="contact-link">Contact your Representative</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</main>
+		<script src="https://code.jquery.com/jquery.js"></script> 
+		<script src="assets/js/config.js" type='text/javascript'></script> 
+		<script src="assets/js/covid-data.js"></script> 
+		<script src="assets/js/script.js"></script>
+	</body>
 </html>

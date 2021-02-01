@@ -1,7 +1,10 @@
-.hidden {
-  display: none;
+body {
+  background-color: #f6f6f6;
+  min-height: 100vh;
+  font-size: 1.2rem;
 }
 
+/* page title */
 header {
   background-color: rgb(54, 54, 179);
   padding: 32px;
@@ -12,18 +15,11 @@ header {
   color: rgb(247, 241, 241);
 }
 
+/* zip code form */
 h1 {
   padding-top: 64px;
   font-size: 1.6rem;
   margin-bottom: 64px;
-}
-
-body {
-  font-size: 1.2rem;
-}
-
-.label {
-  vertical-align: center;
 }
 
 /* input styles */
@@ -33,6 +29,25 @@ body {
 
 input {
   min-width: 200px;
+}
+
+/* zip code tag styles */
+.tag {
+  margin: 8px 12px 4px 0;
+  padding: 2px 4px;
+  border: 2px solid rgb(241, 134, 134);
+  background-color: white;
+}
+
+a.tag {
+  color: rgb(241, 134, 134);
+  font-size: 1.2rem;
+  background-color: white;
+  font-style: bold;
+}
+
+.fas {
+  margin-right: 8px;
 }
 
 /* search button styles */
@@ -54,6 +69,7 @@ input {
   color: white;
 }
 
+/* card styles */
 .title {
   font-weight: bold;
 }
@@ -71,24 +87,28 @@ input {
   width: 160px;
 }
 
-.tag {
-  margin: 8px 12px 4pxgi 0;
-  padding: 2px 4px;
-  border: 2px solid rgb(241, 134, 134);
-  background-color: white;
-}
-
-a.tag {
-  color: rgb(241, 134, 134);
-  font-size: 1.2rem;
-  background-color: white;
-  font-style: bold;
-}
-
-.fas {
-  margin-right: 8px;
-}
-
 img {
   max-width: 96px;
+}
+
+.hidden {
+  visibility: hidden;
+}
+
+@media only screen and (max-width: 500px) {
+  .media {
+    display: inline-block;
+    width: 100%;
+  }
+  .media-left {
+    display: inline;
+  }
+  .media-right {
+    display: inline;
+    width: 100%;
+  }
+  .card {
+    padding: 12px;
+    margin-bottom: 32px;
+  }
 }
