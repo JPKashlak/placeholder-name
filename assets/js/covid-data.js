@@ -16,14 +16,12 @@ var getCountyData = function (event) {
     event.preventDefault();
     // Set input value to a variables
     var localZip = zipEntry.value.trim();
-    console.log(localZip);
 
     // Set api URL to variable based on local zip to get location
     var zipLocation = "https://cors-anywhere.herokuapp.com/https://www.zipcodeapi.com/rest/" + locationApiKey + "/info.json/" + localZip + "/degrees"
     // Initiate fetch request
     fetch(zipLocation).then(function (response) {
         response.json().then(function (data) {
-            console.log(data)
             // Get data coordinates and Set to variables
             var localLat = data.lat
             var localLong = data.lng
@@ -34,7 +32,6 @@ var getCountyData = function (event) {
                 response.json().then(function (data) {
                     // Get data fips code and Set to global variable
                     var countyFIPS = data.County.FIPS;
-                    console.log(countyFIPS)
 
                     // Set covidNow url to variable 
                     var covidApiURL = "https://api.covidactnow.org/v2/county/" + countyFIPS + ".json?apiKey=" + covidNowKey;
